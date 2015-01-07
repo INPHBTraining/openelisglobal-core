@@ -206,6 +206,10 @@ public class DisplayListService implements LocaleChangeListener {
                 typeToListMap.put(ListType.SAMPLE_TYPE_INACTIVE, createSampleTypeList(true));
                 break;
             }
+            case PANELS:{
+                typeToListMap.put(ListType.PANELS, createPanelList());
+                break;
+            }
         }
     }
 
@@ -267,7 +271,7 @@ public class DisplayListService implements LocaleChangeListener {
 
         List<Panel> panelList = new PanelDAOImpl().getAllActivePanels();
         for( Panel panel : panelList){
-            panels.add( new IdValuePair( panel.getId(), panel.getLocalizedName() ) );
+            panels.add( new IdValuePair( panel.getId(), panel.getPanelName() ) );
         }
         return panels;
     }

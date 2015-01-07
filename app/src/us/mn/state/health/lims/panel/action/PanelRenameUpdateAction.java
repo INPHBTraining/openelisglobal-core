@@ -25,6 +25,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 
 import us.mn.state.health.lims.common.action.BaseAction;
+import us.mn.state.health.lims.common.services.DisplayListService;
 import us.mn.state.health.lims.hibernate.HibernateUtil;
 import us.mn.state.health.lims.localization.daoimpl.LocalizationDAOImpl;
 import us.mn.state.health.lims.panel.dao.PanelDAO;
@@ -43,6 +44,7 @@ public class PanelRenameUpdateAction extends BaseAction {
         //Iterate through them one by one
         //If the new name is not the same as the name gotten from the database then
         //save it
+        //Names should be compared using panel.getPanelName() and updated with panel.setPanelName()
         PanelDAO panelDAO = new PanelDAOImpl();
         List<Panel> updatableList = new ArrayList<>();
 
@@ -51,6 +53,7 @@ public class PanelRenameUpdateAction extends BaseAction {
 
         try {
             for (Panel panel : updatableList) {
+                panel.setSysUserId(currentUserId);
                 panelDAO.updateData(panel);
             }
             tx.commit();
@@ -60,6 +63,8 @@ public class PanelRenameUpdateAction extends BaseAction {
             HibernateUtil.closeSession();
         }
 
+        DisplayListService.refreshList(DisplayListService.ListType.PANELS);
+        
         return mapping.findForward(FWD_SUCCESS);
     }
 

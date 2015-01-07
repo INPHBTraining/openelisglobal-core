@@ -1613,7 +1613,7 @@
                 </action>
                 
                  <action path="/UpdatePanelRename" name="panelRenameForm" type="us.mn.state.health.lims.panel.action.PanelRenameUpdateAction" >
-                    <forward name="success" foward="/PanelRename.do" />
+                    <forward name="success" path="/PanelRename.do" />
                 </action>
 	</action-mappings>
 </struts-config>

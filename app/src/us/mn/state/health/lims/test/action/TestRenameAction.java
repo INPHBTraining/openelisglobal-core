@@ -35,6 +35,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class TestRenameAction extends BaseAction {
 
+        @Override
 	protected ActionForward performAction(ActionMapping mapping,
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -48,10 +49,12 @@ public class TestRenameAction extends BaseAction {
         return mapping.findForward(FWD_SUCCESS);
 	}
 
+        @Override
 	protected String getPageTitleKey() {
 		return "";
 	}
 
+        @Override
 	protected String getPageSubtitleKey() {
 		return "";
 	}
