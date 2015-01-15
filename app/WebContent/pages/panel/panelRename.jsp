@@ -34,6 +34,8 @@
     <li>Find the form bean and note the name of the property</li>
     <li>Find the name of the action and open it for editing</li>
     <li>Add the information in the action.  Look at other actions if you need to.  TestRenameAction.java would be a good one</li>
+    <li>Find the name of the jsp page.  On line 1612 of struts-globalOpenELIS.xml the path refers to a tile in  tiles-globalOpenELIS.xml</li>
+    <li>The body of the definition is this jsp file</li>
     <li>Add the needed elements to this jsp page.
         <ol type="a">
             <li>Add collection iterator</li>
