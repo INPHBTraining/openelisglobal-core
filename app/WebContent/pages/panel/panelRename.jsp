@@ -1,7 +1,8 @@
 <%@ page language="java"
          contentType="text/html; charset=utf-8"
          import="java.util.Date,
-         us.mn.state.health.lims.common.action.IActionConstants" %>
+         us.mn.state.health.lims.common.action.IActionConstants,
+         us.mn.state.health.lims.common.util.IdValuePair" %>
 
 <%@ taglib uri="/tags/struts-bean" prefix="bean" %>
 <%@ taglib uri="/tags/struts-html" prefix="html" %>
@@ -18,7 +19,6 @@
 <script language="JavaScript1.2">
     function savePage()
     {
-        window.onbeforeunload = null; // Added to flag that formWarning alert isn't needed.
         var form = window.document.forms[0];
         form.action = "UpdatePanelRename.do";
         form.submit();
@@ -40,7 +40,6 @@
         <ol type="a">
             <li>Add collection iterator</li>
             <li>Add list of panels in two columns, one with the original name, the other for editing.</li>
-            <li>Add save button which will call the function "savePage"</li>
         </ol>
     </li>
     <li>Find the action that will be called when the panel renames are saved.  
@@ -52,4 +51,17 @@
     <li>When you are satisfied everything is working, delete these instructions</li>
 </ol>
 
+<table>
+    <tr>
+        <td>Panel</td>
+        <td>New Name</td>
+    </tr>
+<logic:iterate id="panel" name="<%=formName%>"  property="panelList" indexId="index" type="IdValuePair">
+    <tr>
+        <td><bean:write name="panel" property="value"/></td>
+        <td><html:text name="panelRenameForm.panel" property="value" indexed="true" /></td>
+    </tr>
+</logic:iterate>
+</table>
+ 
 

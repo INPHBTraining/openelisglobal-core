@@ -15,12 +15,14 @@ package us.mn.state.health.lims.panel.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.beanutils.PropertyUtils;
 
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import us.mn.state.health.lims.common.action.BaseAction;
+import us.mn.state.health.lims.common.services.DisplayListService;
 
 public class PanelRenameAction extends BaseAction {
 
@@ -31,6 +33,7 @@ public class PanelRenameAction extends BaseAction {
 
         //Get list of panels from DisplayListService and assign it to the corrects struts form member
         //This will only be one or two lines depending on how you do it
+        PropertyUtils.setProperty( form, "panelList", DisplayListService.getList( DisplayListService.ListType.PANELS ) );
 
         return mapping.findForward(FWD_SUCCESS);
     }

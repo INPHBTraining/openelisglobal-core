@@ -25,7 +25,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 
 import us.mn.state.health.lims.common.action.BaseAction;
+import us.mn.state.health.lims.common.action.BaseActionForm;
 import us.mn.state.health.lims.common.services.DisplayListService;
+import us.mn.state.health.lims.common.util.IdValuePair;
 import us.mn.state.health.lims.hibernate.HibernateUtil;
 import us.mn.state.health.lims.localization.daoimpl.LocalizationDAOImpl;
 import us.mn.state.health.lims.panel.dao.PanelDAO;
@@ -45,9 +47,15 @@ public class PanelRenameUpdateAction extends BaseAction {
         //If the new name is not the same as the name gotten from the database then
         //save it
         //Names should be compared using panel.getPanelName() and updated with panel.setPanelName()
+        BaseActionForm dynaForm = ( BaseActionForm ) form;
+        List<IdValuePair> panelList = (List<IdValuePair>)dynaForm.get( "panelList" );
+        
         PanelDAO panelDAO = new PanelDAOImpl();
         List<Panel> updatableList = new ArrayList<>();
 
+        for(IdValuePair pair: panelList){
+            System.out.println(pair.getValue());
+        }
         //This is where the new code should go
         Transaction tx = HibernateUtil.getSession().beginTransaction();
 

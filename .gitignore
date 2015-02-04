@@ -58,3 +58,5 @@ liquibase/OE3.4/testCatalogCI_IPCI/scripts/testSections.txt
 liquibase/lb.iml
 liquibase/postgresql-9.2-1002.jdbc3.jar
 liquibase/postgresql-driver-license.txt
+/nbproject/private/
+/build/

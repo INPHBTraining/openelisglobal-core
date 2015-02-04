@@ -332,7 +332,8 @@
     	<put name="footer" value="/pages/common/saveCancelFooterButtons.jsp"/>
     </definition>
 
-    <definition name="panelRenameDefinition" extends="baseMenuDefinition">
+    <definition name="panelRenameDefinition" extends="baseDefinition">
         <put name="body" value="/pages/panel/panelRename.jsp"/>
+        <put name="footer" value="/pages/common/saveCancelFooterButtons.jsp"/>
     </definition>
 </tiles-definitions>

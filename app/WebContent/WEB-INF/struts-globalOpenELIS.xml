@@ -715,7 +715,8 @@
         <form-bean name="testManagementConfigForm" type="us.mn.state.health.lims.common.action.BaseActionForm" />
         
         <form-bean name="panelRenameForm" type="us.mn.state.health.lims.common.action.BaseActionForm">
-                <form-property name="panelList" type="java.util.List" />
+           <form-property name="lastupdated" type="java.sql.Timestamp" initial="" />
+            <form-property name="panelList" type="java.util.List" />
         </form-bean>
 	</form-beans>
 
